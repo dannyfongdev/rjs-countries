@@ -34,10 +34,10 @@ function CountryDetail(props) {
           </div>
           <div>
             <div className="text-2xl font-bold mb-6">{country.name}</div>
-            <div className="mb-3 md:grid md:grid-cols-2">
+            <div className="mb-3 md:grid md:grid-cols-2 md:gap-20">
               <div>
                 <div><span className="font-semibold">Native Name: </span>{country.nativeName}</div>
-                <div><span className="font-semibold">Population: </span>{country.population}</div>
+                <div><span className="font-semibold">Population: </span>{country.population.toLocaleString('en-US')}</div>
                 <div><span className="font-semibold">Region: </span>{country.region}</div>
                 <div><span className="font-semibold">Sub Region:</span>{country.subregion}</div>
                 <div><span className="font-semibold">Capital: </span>{country.capital}</div>
