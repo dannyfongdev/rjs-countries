@@ -12,9 +12,9 @@ function getJson(url) {
 }
 
 // const BASE_URL = 'http://127.0.0.1:8000'
-// const BASE_URL = 'https://djg-countries.vercel.app/'
-const BASE_URL = 'https://djg-countries-git-main-dannyfongdev.vercel.app'
-// @todo I think the reason why production url djg-countries.vercel.app does not allow requests is because production environment only allows hosts 'vercel.app'
+// const BASE_URL = 'https://djg-countries-git-main-dannyfongdev.vercel.app'
+const BASE_URL = 'https://djg-countries.vercel.app'
+
 
 export function getCountry(name) {
   return getJson(BASE_URL + '/api/name/' + name)
