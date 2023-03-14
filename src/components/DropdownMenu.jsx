@@ -13,12 +13,14 @@ function DropdownMenu(props) {
     setShowMenu(!showMenu);
   }
 
+// @todo dark mode focus ring color
+
   return (
-    <div>
+    <div className="my-5 bg-lightBackground dark:bg-darkBackground">
       <button
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
-        className="relative text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="relative w-44 bg-lightElements dark:bg-darkElements text-lightText dark:text-darkText focus:ring-2 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-4 text-center inline-flex items-center justify-between"
         type="button"
         onClick={handleToggle}
       >
@@ -42,7 +44,7 @@ function DropdownMenu(props) {
 
       <div
         id="dropdown"
-        className={(showMenu ? 'block' : 'hidden') + " absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 cursor-pointer"}
+        className={(showMenu ? 'block' : 'hidden') + " absolute top-[172px] md:top-[76px] z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 cursor-pointer"}
       >
         <ul
           className="py-2 text-sm text-gray-700 dark:text-gray-200"

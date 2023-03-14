@@ -24,17 +24,17 @@ function CountryDetail(props) {
   }, [code]);
 
   return (
-    <div className="p-6 sm:p-12 lg:p-[80px] min-h-screen bg-lightBackground dark:bg-darkBackground text-lightText dark:text-darkText">
-      <button type="button" className="mb-12 px-8 py-3 font-semibold rounded bg-lightElements dark:bg-darkElements shadow" onClick={onBack}>Back</button>
+    <div className="p-8 min-h-screen bg-lightBackground dark:bg-darkBackground text-lightText dark:text-darkText">
+      <button type="button" className="mb-14 px-6 py-1 font-semibold rounded bg-lightElements dark:bg-darkElements shadow" onClick={onBack}>Back</button>
       {country && (
 
-        <div className="md:flex gap-12 lg:gap-24">
-          <div className="mb-8 min-w-[265px] lg:w-[520px]">
+        <div className="md:flex md:gap-12 lg:gap-24">
+          <div className="mb-10 lg:w-[520px]">
             <img src={country.flag} alt="country flag" />
           </div>
           <div>
             <div className="text-2xl font-bold mb-6">{country.name}</div>
-            <div className="mb-3 leading-8 gap-12 md:grid md:grid-cols-2 lg:gap-28">
+            <div className="mb-3 leading-8 md:gap-10 md:flex lg:gap-28">
               <div className="mb-8">
                 <div><span className="font-semibold">Native Name: </span>{country.nativeName}</div>
                 <div><span className="font-semibold">Population: </span>{country.population.toLocaleString('en-US')}</div>
