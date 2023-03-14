@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 function DropdownMenu(props) {
   const { onSelectRegion } = props;
@@ -7,26 +7,26 @@ function DropdownMenu(props) {
   const handleSelect = (r) => {
     onSelectRegion(r);
     handleToggle();
-  }
+  };
 
   const handleToggle = () => {
     setShowMenu(!showMenu);
-  }
+  };
 
-// @todo dark mode focus ring color
+  // @todo dark mode focus ring color
 
   return (
     <div className="my-5 bg-lightBackground dark:bg-darkBackground">
       <button
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
-        className="relative w-44 bg-lightElements dark:bg-darkElements text-lightText dark:text-darkText focus:ring-2 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-4 text-center inline-flex items-center justify-between"
+        className="relative inline-flex w-44 items-center justify-between rounded-lg bg-lightElements px-4 py-4 text-center text-sm font-medium text-lightText focus:outline-none focus:ring-2 focus:ring-gray-300 dark:bg-darkElements dark:text-darkText dark:focus:ring-gray-700"
         type="button"
         onClick={handleToggle}
       >
         Filter by Region{" "}
         <svg
-          className="w-4 h-4 ml-2"
+          className="ml-2 h-4 w-4"
           aria-hidden="true"
           fill="none"
           stroke="currentColor"
@@ -44,28 +44,60 @@ function DropdownMenu(props) {
 
       <div
         id="dropdown"
-        className={(showMenu ? 'block' : 'hidden') + " absolute top-[172px] md:top-[76px] z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 cursor-pointer"}
+        className={
+          (showMenu ? "block" : "hidden") +
+          " absolute top-[172px] z-10 w-44 cursor-pointer divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700 md:top-[76px]"
+        }
       >
         <ul
           className="py-2 text-sm text-gray-700 dark:text-gray-200"
           aria-labelledby="dropdownDefaultButton"
         >
-          <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onClick={()=>handleSelect('Africa')}>
+          <li>
+            <a
+              href="#"
+              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={() => handleSelect("Africa")}
+            >
               Africa
-          </a></li>
-          <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onClick={()=>handleSelect('Americas')}>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={() => handleSelect("Americas")}
+            >
               Americas
-          </a></li>
-          <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onClick={()=>handleSelect('Asia')}>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={() => handleSelect("Asia")}
+            >
               Asia
-          </a></li>
-          <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onClick={()=>handleSelect('Europe')}>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={() => handleSelect("Europe")}
+            >
               Europe
-          </a></li>
-          <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onClick={()=>handleSelect('Oceania')}>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={() => handleSelect("Oceania")}
+            >
               Oceania
-          </a></li>
-
+            </a>
+          </li>
         </ul>
       </div>
     </div>

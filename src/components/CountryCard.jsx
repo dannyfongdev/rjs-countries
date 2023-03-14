@@ -2,13 +2,19 @@ function CountryCard(props) {
   const { flag, name, population, region, capital, onShow, cca3 } = props;
 
   return (
-    <div className="bg-lightBackground dark:bg-darkBackground px-8 sm:px-0">
+    <div className="bg-lightBackground px-5 dark:bg-darkBackground sm:px-0">
       <div
         onClick={() => onShow(cca3)}
-        className="cursor-pointer rounded-md bg-lightElements dark:bg-darkElements shadow"
+        className="mx-auto w-[265px] cursor-pointer rounded-md bg-lightElements shadow dark:bg-darkElements"
       >
-        <img className="w-full rounded-t-md shadow dark:bg-darkBackground" src={flag} alt="country flag" />
-        <div className="px-6 pt-8 pb-3 leading-tight text-lg font-bold">{name}</div>
+        <img
+          className="rounded-t-md shadow dark:bg-darkBackground"
+          src={flag}
+          alt="country flag"
+        />
+        <div className="px-6 pt-8 pb-3 text-lg font-bold leading-tight">
+          {name}
+        </div>
         <div className="px-6 pb-12 text-sm">
           <div>
             <span className="font-semibold">Population: </span>

@@ -63,11 +63,13 @@ function App() {
       });
   }
 
+// @todo format messages for search and filter
+
   return (
     <div className="bg-lightBackground dark:bg-darkBackground">
       {showGrid && <SearchBar onSearch={handleSearch} onSelectRegion={handleRegion} />}
-      {showGrid && searchTerm && <div className="mb-4 font-bold">Search: "{searchTerm}"</div>}
-      {showGrid && regionTerm && <div className="mb-4 font-bold">Region: "{regionTerm}"</div>}
+      {false && showGrid && searchTerm && <div className="mb-4 font-bold">Search: "{searchTerm}"</div>}
+      {false && showGrid && regionTerm && <div className="mb-4 font-bold">Region: "{regionTerm}"</div>}
       {!showGrid && <CountryDetail code={detailCountry} onBack={() => setShowGrid(true)} countryNames={countryNames} onGotoBorderCountry={showCountryDetail} />}
       {showGrid && <CountryGrid onShow={showCountryDetail} countries={countries}/>}
     </div>
