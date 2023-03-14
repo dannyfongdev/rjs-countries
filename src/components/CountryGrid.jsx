@@ -5,7 +5,7 @@ function CountryGrid (props) {
 
   
   return (
-    <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div className="grid py-[45px] gap-[40px] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-[75px] bg-lightBackground dark:bg-darkBackground text-lightText dark:text-darkText">
 
     {countries && countries.map(country => (
       <CountryCard 

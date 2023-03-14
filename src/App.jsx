@@ -64,7 +64,7 @@ function App() {
   }
 
   return (
-    <div className="p-6 bg-slate-200">
+    <div className="container max-w-screen-[1440px] mx-auto bg-lightBackground dark:bg-darkBackground">
       {showGrid && <SearchBar onSearch={handleSearch} onSelectRegion={handleRegion} />}
       {showGrid && searchTerm && <div className="mb-4 font-bold">Search: "{searchTerm}"</div>}
       {showGrid && regionTerm && <div className="mb-4 font-bold">Region: "{regionTerm}"</div>}

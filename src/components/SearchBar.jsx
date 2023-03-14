@@ -13,11 +13,11 @@ function Search(props) {
   };
 
   return (
-    <div className="flex flex-col justify-between md:flex-row">
-      <form className="mb-12" onSubmit={handleSubmit}>
+    <div className="flex flex-col justify-between md:flex-row bg-lightBackground dark:bg-darkBackground text-lightText dark:text-darkText">
+      <form onSubmit={handleSubmit}>
         <label htmlFor="search"></label>
         <input
-          className="p-4"
+          className="p-4 rounded-md dark:bg-darkElements md:w-[480px]"
           id="search"
           type="text"
           value={term}
