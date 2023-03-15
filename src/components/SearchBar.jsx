@@ -17,7 +17,7 @@ function Search(props) {
 
   return (
     <div className="flex flex-col justify-between bg-lightBackground px-5 text-lightText dark:bg-darkBackground dark:text-darkText md:flex-row xl:px-[80px]">
-      <form className="my-5 text-sm md:text-base" onSubmit={handleSubmit}>
+      <form className="mt-6 mb-6 text-sm md:text-base md:mt-12 md:mb-2" onSubmit={handleSubmit}>
         <label htmlFor="search"></label>
         <input
           className="w-full rounded-md p-4 shadow focus:outline-none focus:ring-2 focus:ring-gray-300 dark:bg-darkElements dark:focus:ring-gray-700 md:w-[480px]"

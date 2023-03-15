@@ -16,7 +16,7 @@ function DropdownMenu(props) {
   // @todo dark mode focus ring color
 
   return (
-    <div className="my-5 bg-lightBackground dark:bg-darkBackground">
+    <div className="mt-6 mb-6 bg-lightBackground dark:bg-darkBackground md:mt-12 md:mb-2">
       <button
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
@@ -46,7 +46,7 @@ function DropdownMenu(props) {
         id="dropdown"
         className={
           (showMenu ? "block" : "hidden") +
-          " absolute top-[252px] z-10 w-44 cursor-pointer divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700 md:top-[158px]"
+          " absolute top-[262px] z-10 w-44 cursor-pointer divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700 md:top-[184px]"
         }
       >
         <ul
