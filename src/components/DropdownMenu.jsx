@@ -20,7 +20,7 @@ function DropdownMenu(props) {
       <button
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
-        className="relative inline-flex w-44 items-center justify-between rounded-lg bg-lightElements px-4 py-4 text-center text-sm font-medium text-lightText focus:outline-none focus:ring-2 focus:ring-gray-300 dark:bg-darkElements dark:text-darkText dark:focus:ring-gray-700"
+        className="relative inline-flex w-44 items-center justify-between rounded-lg bg-lightElements px-4 py-4 text-center text-sm font-medium text-lightText shadow focus:outline-none focus:ring-2 focus:ring-gray-300 dark:bg-darkElements dark:text-darkText dark:focus:ring-gray-700"
         type="button"
         onClick={handleToggle}
       >
@@ -46,7 +46,7 @@ function DropdownMenu(props) {
         id="dropdown"
         className={
           (showMenu ? "block" : "hidden") +
-          " absolute top-[172px] z-10 w-44 cursor-pointer divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700 md:top-[76px]"
+          " absolute top-[252px] z-10 w-44 cursor-pointer divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700 md:top-[158px]"
         }
       >
         <ul

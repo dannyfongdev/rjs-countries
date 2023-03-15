@@ -4,6 +4,7 @@ import { getRegion, getCountry, getCountryCodes } from './modules/countries'
 import CountryGrid from "./components/CountryGrid";
 import CountryDetail from "./components/CountryDetail";
 import SearchBar from "./components/SearchBar";
+import Header from "./components/Header";
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
 
   return (
     <div className="bg-lightBackground dark:bg-darkBackground">
+      <Header />
       {showGrid && <SearchBar onSearch={handleSearch} onSelectRegion={handleRegion} />}
       {false && showGrid && searchTerm && <div className="mb-4 font-bold">Search: "{searchTerm}"</div>}
       {false && showGrid && regionTerm && <div className="mb-4 font-bold">Region: "{regionTerm}"</div>}
