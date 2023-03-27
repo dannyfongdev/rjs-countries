@@ -1,11 +1,11 @@
 function Header() {
 
   return (
-    <div className="flex h-[80px] cursor-pointer items-center justify-between border-b-4 border-b-gray-100 bg-lightElements px-5 dark:border-0 dark:bg-darkElements dark:text-darkText xl:px-[80px]">
+    <div className="flex h-[80px] items-center justify-between border-b-4 border-b-gray-100 bg-lightElements px-5 dark:border-0 dark:bg-darkElements dark:text-darkText xl:px-[80px]">
       <h1 className="text-sm font-extrabold md:text-xl lg:text-2xl">
         Where in the World?
       </h1>
-      <div className="flex items-center gap-2 text-sm" onClick={toggleDarkMode}>
+      <div className="flex cursor-pointer items-center gap-2 text-sm" onClick={toggleDarkMode}>
         <svg
           fill="white"
           viewBox="0 0 24 24"

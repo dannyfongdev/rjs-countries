@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 
 import { getByCode } from "../modules/countries";
 
-// @todo - border countries sometimes breaks. depends on data
-
 function CountryDetail(props) {
   const { code, onBack, countryNames, onGotoBorderCountry } = props;
   const [country, setCountry] = useState();
@@ -22,15 +20,26 @@ function CountryDetail(props) {
       });
   }, [code]);
 
-  // @todo back-arrow graphic for back button
-
   return (
     <div className="container min-h-screen bg-lightBackground p-8 text-lightText dark:bg-darkBackground dark:text-darkText lg:p-12 xl:p-[80px]">
       <button
         type="button"
-        className="mb-14 rounded bg-lightElements px-6 py-1 font-semibold shadow dark:bg-darkElements"
+        className="flex gap-2 mb-14 rounded bg-lightElements px-6 py-2 font-semibold shadow dark:bg-darkElements"
         onClick={onBack}
       >
+        <svg
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="h-6 w-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+          />
+        </svg>
         Back
       </button>
       {country && (
