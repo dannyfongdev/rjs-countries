@@ -13,8 +13,6 @@ function DropdownMenu(props) {
     setShowMenu(!showMenu);
   };
 
-  // @todo dark mode focus ring color
-
   return (
     <div className="mt-6 mb-6 bg-lightBackground dark:bg-darkBackground md:mt-12 md:mb-2">
       <button
