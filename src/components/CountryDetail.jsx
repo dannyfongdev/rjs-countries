@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 
 import { getByCode } from "../modules/countries";
+import Spinner from "./Spinner";
 
 function CountryDetail(props) {
   const { code, onBack, countryNames, onGotoBorderCountry } = props;
   const [country, setCountry] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getByCode(code)
@@ -17,6 +19,9 @@ function CountryDetail(props) {
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, [code]);
 
@@ -24,7 +29,7 @@ function CountryDetail(props) {
     <div className="container min-h-screen bg-lightBackground p-8 text-lightText dark:bg-darkBackground dark:text-darkText lg:p-12 xl:p-[80px]">
       <button
         type="button"
-        className="flex gap-2 mb-14 rounded bg-lightElements px-6 py-2 font-semibold shadow dark:bg-darkElements"
+        className="mb-14 flex gap-2 rounded bg-lightElements px-6 py-2 font-semibold shadow dark:bg-darkElements"
         onClick={onBack}
       >
         <svg
@@ -42,6 +47,7 @@ function CountryDetail(props) {
         </svg>
         Back
       </button>
+      {isLoading && <Spinner />}
       {country && (
         <div className="space-y-10 md:flex md:gap-12 md:space-y-0 lg:gap-24 xl:items-center xl:gap-28 ">
           <div className="shrink-0">
