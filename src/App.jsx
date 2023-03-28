@@ -86,12 +86,12 @@ function App() {
       )}
       {isLoading && <Spinner />}
       {!isLoading && !countries.length && (
-        <div className="p-6 text-lightText dark:text-darkText">
+        <div className="container p-6 text-lightText dark:text-darkText xl:px-[80px]">
           We searched for "{searchTerm}," but did not find any matches. Please
           try again.
         </div>
       )}
-      {!isLoading && showGrid && regionTerm && <div className="p-6 text-lightText dark:text-darkText">Current Region: "{regionTerm}"</div>}
+      {!isLoading && showGrid && regionTerm && <div className="container p-6 text-lightText dark:text-darkText xl:px-[80px]">Current Region: "{regionTerm}"</div>}
       {!showGrid && (
         <CountryDetail
           code={detailCountry}
