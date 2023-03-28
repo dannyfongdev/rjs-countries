@@ -86,11 +86,12 @@ function App() {
       )}
       {isLoading && <Spinner />}
       {!isLoading && !countries.length && (
-        <div className="p-6 font-semibold text-lightText dark:text-darkText">
+        <div className="p-6 text-lightText dark:text-darkText">
           We searched for "{searchTerm}," but did not find any matches. Please
           try again.
         </div>
       )}
+      {!isLoading && showGrid && regionTerm && <div className="p-6 text-lightText dark:text-darkText">Current Region: "{regionTerm}"</div>}
       {!showGrid && (
         <CountryDetail
           code={detailCountry}
