@@ -1,36 +1,40 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 
-import { getRegion, getCountry, getCountryCodes } from './modules/countries'
+import { getRegion, getCountry, getCountryCodes } from "./modules/countries";
 import CountryGrid from "./components/CountryGrid";
 import CountryDetail from "./components/CountryDetail";
 import SearchBar from "./components/SearchBar";
 import Header from "./components/Header";
-
+import Spinner from "./components/Spinner";
 
 function App() {
   const [countryNames, setCountryNames] = useState();
   const [searchTerm, setSearchTerm] = useState();
   const [regionTerm, setRegionTerm] = useState();
   const [showGrid, setShowGrid] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [countries, setCountries] = useState(); // list of country objects passed to CountryGrid component
   const [detailCountry, setDetailCountry] = useState(); // country code passed to CountryDetail component
 
   // on load, default to region = 'Americas'
   // also load objects for looking up country names by code: {PER: 'Peru'}
   useEffect(() => {
-      getRegion('Americas')
-      .then (data => {
+    getRegion("Americas")
+      .then((data) => {
         setCountries(data);
       })
-      .catch (error => {
+      .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
 
-      getCountryCodes()
-      .then (data => {
+    getCountryCodes()
+      .then((data) => {
         setCountryNames(data);
       })
-      .catch (error => {
+      .catch((error) => {
         console.log(error);
       });
   }, []);
@@ -41,39 +45,63 @@ function App() {
   }
 
   function handleSearch(s) {
+    setIsLoading(true);
     setSearchTerm(s);
-    setRegionTerm('');
+    setRegionTerm("");
     getCountry(s)
-      .then (data => {
+      .then((data) => {
         setCountries(data);
       })
-      .catch (error => {
+      .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   function handleRegion(r) {
-    setSearchTerm('');
+    setIsLoading(true);
+    setSearchTerm("");
     setRegionTerm(r);
     getRegion(r)
-      .then (data => {
+      .then((data) => {
         setCountries(data);
       })
-      .catch (error => {
+      .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
-// @todo format messages for search and filter
+  // @todo format messages for search and filter
 
   return (
-    <div className="bg-lightBackground dark:bg-darkBackground">
+    <div className="min-h-screen bg-lightBackground dark:bg-darkBackground">
       <Header />
-      {showGrid && <SearchBar onSearch={handleSearch} onSelectRegion={handleRegion} />}
-      {false && showGrid && searchTerm && <div className="mb-4 font-bold">Search: "{searchTerm}"</div>}
-      {false && showGrid && regionTerm && <div className="mb-4 font-bold">Region: "{regionTerm}"</div>}
-      {!showGrid && <CountryDetail code={detailCountry} onBack={() => setShowGrid(true)} countryNames={countryNames} onGotoBorderCountry={showCountryDetail} />}
-      {showGrid && <CountryGrid onShow={showCountryDetail} countries={countries}/>}
+      {showGrid && (
+        <SearchBar onSearch={handleSearch} onSelectRegion={handleRegion} />
+      )}
+      {isLoading && <Spinner />}
+      {!isLoading && !countries.length && (
+        <div className="p-6 font-semibold text-lightText dark:text-darkText">
+          We searched for "{searchTerm}," but did not find any matches. Please
+          try again.
+        </div>
+      )}
+      {!showGrid && (
+        <CountryDetail
+          code={detailCountry}
+          onBack={() => setShowGrid(true)}
+          countryNames={countryNames}
+          onGotoBorderCountry={showCountryDetail}
+        />
+      )}
+      {showGrid && (
+        <CountryGrid onShow={showCountryDetail} countries={countries} />
+      )}
     </div>
   );
 }
