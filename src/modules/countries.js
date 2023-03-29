@@ -17,7 +17,7 @@ const BASE_URL = 'https://djg-countries.vercel.app'
 
 
 export function getCountry(name) {
-  return getJson(BASE_URL + '/api/name/' + name)
+  return getJson(BASE_URL + '/api/name/?q=' + name)
 }
 
 export function getRegion(region) {
